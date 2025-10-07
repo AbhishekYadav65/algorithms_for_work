@@ -1,0 +1,26 @@
+Algorithm: UniqueQuestionGenerator
+
+Goal:
+  Generate new and unique questions every time using templates,
+  random variable substitution, and paraphrasing, ensuring no exact repeats.
+
+Inputs:
+  - TemplateBank: list of question templates with placeholders.
+  - VariablePools: dictionary containing possible replacements for placeholders.
+  - Paraphraser: optional LLM or rule-based reworder.
+  - UsedQuestionsDB: storage of past hashes for uniqueness checking.
+
+Output:
+  - A unique question string with metadata.
+
+Steps:
+  1. Select a random template T from TemplateBank.
+  2. Replace placeholders in T using random selections from VariablePools.
+  3. Get Q_raw = filled question.
+  4. Optionally paraphrase Q_raw to get Q_para.
+  5. Compute hash H = SHA256(Q_para).
+  6. If H exists in UsedQuestionsDB:
+         Go to Step 1 (regenerate).
+     Else:
+         Add (H, Q_para, metadata) to UsedQuestionsDB.
+         Return Q_para.

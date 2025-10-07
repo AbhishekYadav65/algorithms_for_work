@@ -1,0 +1,25 @@
+Algorithm: PlagiarismCheck
+
+Goal:
+  Detect duplicate or semantically similar questions using hashing
+  and cosine similarity of sentence embeddings.
+
+Inputs:
+  - Q_new: new question text.
+  - QuestionDatabase: list or DB of existing questions with hashes and embeddings.
+  - Threshold: similarity threshold (default 0.85).
+
+Output:
+  - Boolean: True if duplicate or plagiarized, False otherwise.
+
+Steps:
+  1. Compute hash H_new = SHA256(Q_new).
+  2. If H_new already exists in database:
+         Return True (exact duplicate).
+  3. Else:
+         Compute embedding vector v_new = embed(Q_new).
+         For each stored vector v_i in database:
+             sim = cosine_similarity(v_new, v_i)
+             If sim >= Threshold:
+                 Return True (semantically similar).
+  4. Return False.
