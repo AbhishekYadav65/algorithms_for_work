@@ -1,0 +1,15 @@
+Algorithm: SpacedRepetitionScheduler
+Goal:
+  Decide when a user should revisit an old question using forgetting curve logic.
+
+Input:
+  - Question history: {last_seen, correct_count, incorrect_count}
+  - Current date
+
+Steps:
+  1. For each question:
+       interval_days = base_interval * (correct_count + 1) / (incorrect_count + 1)
+       next_due = last_seen + interval_days
+  2. If next_due <= today → mark as "due for review"
+Output:
+  - List of questions due for review.

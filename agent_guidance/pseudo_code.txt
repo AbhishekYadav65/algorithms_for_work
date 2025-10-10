@@ -1,0 +1,12 @@
+Algorithm: AgentGuidanceFilter
+Goal:
+  Ensure hints provided by AI are plain English — no code or formulas.
+
+Input:
+  - Hint text (string)
+Steps:
+  1. If text contains code patterns like `def`, `{}`, `<code>`, `class`, etc. → reject.
+  2. If text contains formula-like symbols or math LaTeX → simplify.
+  3. Return clean, conceptual explanation only.
+Output:
+  - Filtered plain-English hint.

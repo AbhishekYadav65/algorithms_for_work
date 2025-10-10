@@ -1,0 +1,12 @@
+Algorithm: BrainMemoryContext
+Goal:
+  Adapt hints and next questions based on user’s weak topics and recent struggles.
+
+Input:
+  - UserHistory: list of (topic, correct/incorrect, attempts)
+Steps:
+  1. Compute weakness_score = incorrect / total_attempts per topic.
+  2. Rank topics by weakness_score.
+  3. Return top weak topics for focus.
+Output:
+  - List of weak topics and hint levels.

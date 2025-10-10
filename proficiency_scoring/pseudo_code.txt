@@ -1,0 +1,11 @@
+Algorithm: ProficiencyScoring
+Goal:
+  Calculate per-topic skill score.
+
+Input:
+  - Topic data: {correct_attempts, total_attempts, avg_time}
+Steps:
+  1. score = (correct/total) * 100 - (avg_time / 10)
+  2. Clamp between 0–100.
+Output:
+  - Dictionary {topic: score}.

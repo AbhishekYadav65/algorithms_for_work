@@ -1,0 +1,16 @@
+Algorithm: SessionBuilder
+Goal:
+  Build a balanced set of questions: weak, review, and new.
+
+Input:
+  - WeakTopics list
+  - ReviewQuestions list
+  - NewQuestions list
+
+Steps:
+  1. Select 30% from WeakTopics
+  2. Select 30% from ReviewQuestions
+  3. Select 40% from NewQuestions
+  4. Shuffle and return.
+Output:
+  - Final session (list of question IDs)

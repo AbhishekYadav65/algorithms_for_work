@@ -1,0 +1,17 @@
+Algorithm: AdaptiveDifficultyEngine
+Goal:
+  Adjust question difficulty based on user accuracy, time, and hints.
+
+Input:
+  - Accuracy (%)
+  - Avg_Time (seconds)
+  - Hints_Used (count)
+  - Current_Level (easy/medium/hard)
+
+Steps:
+  1. Calculate performance_score = (accuracy * weight1) - (time_factor * weight2) - (hints_used * weight3)
+  2. If performance_score > threshold_high → increase difficulty.
+  3. If performance_score < threshold_low → decrease difficulty.
+  4. Otherwise → keep same level.
+Output:
+  - New difficulty level.
